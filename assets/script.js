@@ -1,5 +1,6 @@
 var searchBtn = document.getElementById("searchBtn");
 var userInput = document.getElementById("userInput");
+var weatherArray = "./weather_forecast.html"
 
 
 
@@ -37,10 +38,27 @@ function getWeather(data) {
         })
         .then(function (data) {
             console.log(data);
+            console.log(data.current.uvi);
+            console.log(data.current.humidity);
+            console.log(data.current.wind_speed);
+            console.log(data.current.weather[0].icon);
+            
+            currentData = data.current;
+            forecastData = data.daily;
+            getForecast();
+
+            //document.location = weatherArray;
         })
     
+}
+
+function getForecast() {
     for (var i = 0; i < 5; i++) {
-        
+        console.log(forecastData[i].humidity);
+        console.log(forecastData[i].temp.day);
+        console.log(forecastData[i].uvi);
+        console.log(forecastData[i].weather[0].icon);
+        console.log(forecastData[i].wind_speed);
     }
 }
 
