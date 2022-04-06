@@ -26,7 +26,7 @@ body {
 }
 
 .container-fluid {
-    display: flex;
+    display: inline;
 
 }
 
@@ -114,9 +114,9 @@ main {
     
 }
 
-section.forecastWeather {
+.forecastWeather {
     width: 100%;
-    flex-direction:column-reverse;
+    display:inline:
 }
 
 .dailyWeather {
@@ -128,5 +128,5 @@ section.forecastWeather {
     padding: 10px;
     margin: 10px;
     box-shadow: 0 0 5px 2px var(--shadow);
-    
+    width: 18%;
 }
