@@ -15,6 +15,9 @@ var windData = document.getElementById("windData");
 var humidityData = document.getElementById("humidityData");
 var uviData = document.getElementById("uviData");
 
+var ulEl = document.querySelector("ul");
+var historyBtn = document.createElement("button");
+
 console.log(currentMonth + "-" + currentDay + "-" + currentYear);
 
 function getApi(event) {
@@ -43,6 +46,7 @@ function getApi(event) {
       longitude = data[0].lon;
       city = location;
       getWeather();
+      searchHistoryBtns();
     });
 }
 
@@ -80,12 +84,8 @@ function getWeather(data) {
       forecastData = data.daily;
 
       getForecast();
-
       displayForecast();
-
-      //document.location = "./weather_forecast.html";
     });
-  //document.location = "./weather_forecast.html";
 }
 
 function getForecast() {
@@ -138,37 +138,49 @@ function displayData() {
   var uviElements = document.getElementsByClassName("uvi");
 
   for (var i = 0; i < headElements.length + 1; i++) {
-    console.log(iconElements[i]);
     headElements[i].textContent = city + " " + weatherEntries[i].date;
     iconElements[i].setAttribute(
       "src",
       "https://openweathermap.org/img/wn/" + weatherEntries[i].icon + "@2x.png"
     );
-    tempElements[i].textContent = "Temp: " + weatherEntries[i].temp;
-    windElements[i].textContent = "Wind-Speed: " + weatherEntries[i].windspeed;
-    humiElements[i].textContent = "Humidity: " + weatherEntries[i].humidity;
+    iconElements[i].style.opacity = 1;
+    document.getElementsByClassName("icon");
+    tempElements[i].textContent = "Temp: " + weatherEntries[i].temp + " F°";
+    windElements[i].textContent =
+      "Wind-Speed: " + weatherEntries[i].windspeed + " MPH";
+    humiElements[i].textContent =
+      "Humidity: " + weatherEntries[i].humidity + "%";
     uviElements[i].textContent = "UV Index: " + weatherEntries[i].uvi;
 
     if (weatherEntries[i].uvi.toFixed(1) < 2) {
-      console.log("good!" + weatherEntries[i].uvi);
       uviElements[i].style.background = "rgb(0, 128, 0, 0.7)";
     } else if (
       weatherEntries[i].uvi.toFixed(1) < 5 &&
       weatherEntries[i].uvi.toFixed(1) > 2
     ) {
-      console.log("moderate" + weatherEntries[i].uvi);
       uviElements[i].style.background = "rgb(255, 255, 0, 0.7)";
     } else if (
       weatherEntries[i].uvi.toFixed(1) < 7 &&
       weatherEntries[i].uvi.toFixed(1) > 5
     ) {
-      console.log("high" + weatherEntries[i].uvi);
       uviElements[i].style.background = "rgb(255, 215, 0, 0.7)";
     } else {
-      console.log("DANGER" + weatherEntries[i].uvi);
       uviElements[i].style.background = "rgb(255, 0, 0, 0.7)";
     }
   }
 }
 
-searchBtn.addEventListener("click", getApi);
+function searchHistoryBtns() {
+  for (i = 0; i < localStorage; i++) {
+    var key = localStorage.key[i];
+    console.log(key);
+    historyBtn.textContent = city;
+    ulEl.appendChild(historyBtn);
+    historyBtn.setAttribute(
+      "style",
+      "background-color: var(--shadow); color: var(--boxFill); border-radius: 5px; width: 100%; padding: 3px; margin-top: 3px;"
+    );
+  }
+}
+
+searchBtn.addEventListener("click", getApi, searchHistoryBtns);

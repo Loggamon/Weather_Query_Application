@@ -1,132 +1,133 @@
 :root {
-    --background: #0085e1;
-    --text: #ffffff;
-    --shadow: #002887;
-    --rEdge: 10px;
-    --boxFill: #f6f6f6;
+  --background: #0085e1;
+  --text: #ffffff;
+  --shadow: #002887;
+  --rEdge: 10px;
+  --boxFill: #f6f6f6;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Chakra Petch', sans-serif;
-    color: var(--text);
-    background-color: var(--background);
+  font-family: "Chakra Petch", sans-serif;
+  color: var(--text);
+  background-color: var(--background);
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-fluid {
-    display: inline;
-
+  display: inline;
 }
 
 i {
-    color: var(--text);
+  color: var(--text);
 }
 .hero {
-    font-size: 60px;
-    text-shadow: 0 0 10px var(--shadow);
+  font-size: 60px;
+  text-shadow: 0 0 10px var(--shadow);
 }
 
 .srchBox {
-    border: 2px solid var(--shadow);
-    border-radius: var(--rEdge);
-    background-color: var(--boxFill);
-    color: var(--background);
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 0 5px 2px var(--shadow);
+  border: 2px solid var(--shadow);
+  border-radius: var(--rEdge);
+  background-color: var(--boxFill);
+  color: var(--background);
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 5px 2px var(--shadow);
 }
 
 #userInput {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
 }
 
 .button {
-    background-color: var(--shadow);
-    color: var(--boxFill);
-    border-radius: 5px;
-    width: 100%;
-    padding: 3px;
-    margin-top: 3px;
+  background-color: var(--shadow);
+  color: var(--boxFill);
+  border-radius: 5px;
+  width: 100%;
+  padding: 3px;
+  margin-top: 3px;
 }
 
 button:hover {
-    background-color: var(--background);
-    transition: 2 ease;
+  background-color: var(--background);
+  transition: 2 ease;
 }
 /*-------------------------------------------------------------------------------------------------------*/
 
 .container-fluid {
-    display: flex;
-    flex-wrap:wrap;
-    flex-direction:row;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .title-banner {
-    background-color: var(--shadow);
-    padding: 10px 10px 10px 10px;
-    width: 100%;
-    display: inline-block;
+  background-color: var(--shadow);
+  padding: 10px 10px 10px 10px;
+  width: 100%;
+  display: inline-block;
 }
 
 .srcBoxTwo {
-    flex-direction: column;
-    
-    border: 2px solid var(--shadow);
-    border-radius: var(--rEdge);
-    background-color: var(--boxFill);
-    color: var(--background);
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 0 5px 2px var(--shadow);
+  flex-direction: column;
+
+  border: 2px solid var(--shadow);
+  border-radius: var(--rEdge);
+  background-color: var(--boxFill);
+  color: var(--background);
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 5px 2px var(--shadow);
 }
 
 main {
-    width:80%;
-    min-width:30%;
+  width: 80%;
+  min-width: 30%;
 }
 
 .currentWeather {
-    font-size: 300%;
-    width:auto;
-    flex-grow: 3;
-    border: 2px solid var(--shadow);
-    border-radius: var(--rEdge);
-    background-color: var(--shadow);
-    color: var(--text);
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 0 5px 2px var(--shadow);
-    
-    
+  font-size: 300%;
+  width: auto;
+  flex-grow: 3;
+  border: 2px solid var(--shadow);
+  border-radius: var(--rEdge);
+  background-color: var(--shadow);
+  color: var(--text);
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 5px 2px var(--shadow);
+}
+
+.icon {
+  opacity: 0;
 }
 
 .forecastWeather {
-    width: 100%;
-    display:inline:
+  width: 100%;
+  display: flex;
 }
 
 .dailyWeather {
-    flex-grow: 1;
-    border: 2px solid var(--shadow);
-    border-radius: var(--rEdge);
-    background-color: var(--shadow);
-    color: var(--text);
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0 0 5px 2px var(--shadow);
-    width: 18%;
+  display: grid;
+  flex-grow: 1;
+  border: 2px solid var(--shadow);
+  border-radius: var(--rEdge);
+  background-color: var(--shadow);
+  color: var(--text);
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 5px 2px var(--shadow);
+  width: 18%;
 }
